@@ -45,11 +45,25 @@ app.get('/', function(request, response) {
 
 app.get('/rickroll/',function(request, response){
   response.writeHeader(200, {"Content-Type": "text/html"});
+  response.write('<!DOCTYPE "html">'); response.write('<html>'); response.write("<head>"); 
+  response.write('<link href="https://s1.mdpcdn.com/web/css-min/recipecom/css/global_2cc36d25c74611649eb7f11c97c51f61.css" rel="stylesheet" type="text/css">');
+  response.write("<title>You've been rick rolled</title>"); response.write("</head>"); 
+  response.write("<body>");
   response.write(
     '<div><iframe width="1080" height="700" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe></div>'
-  );
+  ); response.write("</body>"); response.write("</html>");
   response.end();
 });
+
+app.get('/login/',function(request, response){
+  response.writeHead(200, {"Content-Type": "text/html"}); 
+  response.write('<!DOCTYPE "html">'); response.write('<html>'); response.write("<head>"); 
+  response.write('<link href="https://s1.mdpcdn.com/web/css-min/recipecom/css/global_2cc36d25c74611649eb7f11c97c51f61.css" rel="stylesheet" type="text/css">');
+  response.write("<title>Hello World Page</title>"); response.write("</head>"); 
+  
+  response.write("<body>"); response.write("Hello World!"); response.write("</body>"); response.write("</html>"); response.end();
+});
+
 
 app.get('/search/',function(request, response){
     console.log(request.query.searchTerm);
