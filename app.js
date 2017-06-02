@@ -43,6 +43,14 @@ app.get('/', function(request, response) {
         path.join(__dirname+'/views' + '/index.html'));
 });
 
+app.get('/rickroll/',function(request, response){
+  response.writeHeader(200, {"Content-Type": "text/html"});
+  response.write(
+    '<div><iframe width="1080" height="700" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe></div>'
+  );
+  response.end();
+});
+
 app.get('/search/',function(request, response){
     console.log(request.query.searchTerm);
     // response.writeHeader(200, {"Content-Type": "text/html"});
